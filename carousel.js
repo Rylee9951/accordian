@@ -1,7 +1,7 @@
 (function(){
 var carouselImages = [
   {
-    image_url: 'http://interfacelift.com/wallpaper/Debbfb5b/03966_upondescent_1280x720.jpg',
+    image_url: 'http://interfacelift.com/wallpaper/Dd5f9e36/03966_upondescent_1280x720.jpg',
     title: 'Upon Descent',
     photographer_id: 'Phil2001'
   },
@@ -21,7 +21,7 @@ var carouselImages = [
     photographer_id: 'illuminati'
   }
 ];
-$document.ready(function(){
-  
+//$document.ready(function(){
+
 })
 }())

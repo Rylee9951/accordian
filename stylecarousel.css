@@ -1,2 +1,37 @@
 html{box-sizing:border-box;}
 *, *:before, *:after {box-sizing:inherit;}
+.pics{
+	position:absolute;  z-index: 1; 
+    position:absolute;  z-index: 3; 
+
+}
+a{
+	font-size: 35px;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  background-color: rgba(0,0,0,0.2);
+  
+}
+
+.next{
+	z-index: 4;
+	right: 24px;
+    border-radius: 3px 0 0 3px;
+}
+.prev{
+	z-index: 5;
+}
+.prev:hover, .next:hover {
+	background-color: #1c2100;
+}
