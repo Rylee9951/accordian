@@ -25,20 +25,20 @@ $(document).ready(function(){
           <div><img src="${item.image_url}" /></div>
           <span class= "title">"${item.title}" by <u>${item.photographer_id}</u></span>
            <div class= "prev">&laquo</div>
-           <div class= "right">&raquo</div>
+           <div class= "next">&raquo</div>
        </div>
        `
       
   })
 
      $("#container").html(htmlStr)
-     $(".pics:first-child").addClass("current")
+     $(".pics:first-child").addClass("current opacity")
      
      
 
 
 
-    $(".right").on('click', function(){
+    $(".next").on('click', function(){
     
         var current = $(".current").attr("id").substr(5)
         var nextIndex = Number(current) + 1;
@@ -48,8 +48,8 @@ $(document).ready(function(){
         }
      
       
-     $(`#image${current}`).removeClass("current")
-     $(`#image${nextIndex}`).addClass("current")
+     $(`#image${current}`).removeClass("current opacity")
+     $(`#image${nextIndex}`).addClass("current opacity")
      
     })
     $(".prev").on('click', function(){
@@ -62,10 +62,11 @@ $(document).ready(function(){
         }
      
       
-     $(`#image${current}`).removeClass("current")
-     $(`#image${prevIndex}`).addClass("current")
+     $(`#image${current}`).removeClass("current opacity")
+     $(`#image${prevIndex}`).addClass("current opacity")
      
     })
+    
 })
 
 
