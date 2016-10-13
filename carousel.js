@@ -2,17 +2,17 @@ $(document).ready(function(){
   
   var carouselImages = [
     {
-      image_url: 'https://placekitten.com/1280/720',
+      image_url: 'https://interfacelift.com/wallpaper/7yz4ma1/03965_sunsetinthecascades_1280x720.jpg',
       title: 'Sunset in the Cascades',
       photographer_id: 'smpoutdoors'
     },
     {
-      image_url: 'https://placekitten.com/1280/720',
+      image_url: 'https://interfacelift.com/wallpaper/7yz4ma1/03958_seljalandsfossiceland_1280x720.jpg',
       title: 'Seljalandsfoss, Iceland',
       photographer_id: 'Robin Kamp'
     },
     {
-      image_url: 'https://placekitten.com/1280/720',
+      image_url: 'https://interfacelift.com/wallpaper/7yz4ma1/03950_godsrays_1280x720.jpg',
       title: 'Gods Rays',
       photographer_id: 'illuminati'
     }
@@ -24,7 +24,8 @@ $(document).ready(function(){
        <div id="image${i}" class="pics">
           <div><img src="${item.image_url}" /></div>
           <span class= "title">"${item.title}" by <u>${item.photographer_id}</u></span>
-          
+           <div class= "prev">&laquo</div>
+           <div class= "right">&raquo</div>
        </div>
        `
       
@@ -33,25 +34,11 @@ $(document).ready(function(){
      $("#container").html(htmlStr)
      $(".pics:first-child").addClass("current")
      
-     var automate = {
-      interval: null,
-      start: function() {
-          this.interval = setInterval(function(){
-                next()
-              }, 3000)
-            },
-            stop: function() {
-              clearInterval(this.interval)
-            },
-            startOver: function() {
-              this.stop();
-              this.start();
-            }
-       }
-      //automate.start()
+     
 
 
-    $(".next").on('click', function(){
+
+    $(".right").on('click', function(){
     
         var current = $(".current").attr("id").substr(5)
         var nextIndex = Number(current) + 1;
@@ -63,7 +50,7 @@ $(document).ready(function(){
       
      $(`#image${current}`).removeClass("current")
      $(`#image${nextIndex}`).addClass("current")
-     //automate.startover()
+     
     })
     $(".prev").on('click', function(){
     
@@ -77,7 +64,7 @@ $(document).ready(function(){
       
      $(`#image${current}`).removeClass("current")
      $(`#image${prevIndex}`).addClass("current")
-     //automate.startover()
+     
     })
 })
 
