@@ -2,38 +2,90 @@ $(document).ready(function(){
   
   var carouselImages = [
     {
-      image_url: 'https://interfacelift.com/wallpaper/7yz4ma1/03965_sunsetinthecascades_1280x720.jpg',
+      image_url: 'https://placekitten.com/1280/720',
       title: 'Sunset in the Cascades',
       photographer_id: 'smpoutdoors'
     },
     {
-      image_url: 'https://interfacelift.com/wallpaper/7yz4ma1/03958_seljalandsfossiceland_1280x720.jpg',
+      image_url: 'https://placekitten.com/1280/720',
       title: 'Seljalandsfoss, Iceland',
       photographer_id: 'Robin Kamp'
     },
     {
-      image_url: 'https://interfacelift.com/wallpaper/7yz4ma1/03950_godsrays_1280x720.jpg',
+      image_url: 'https://placekitten.com/1280/720',
       title: 'Gods Rays',
       photographer_id: 'illuminati'
     }
   ];
 
   var htmlStr = ""
-  carouselImages.forEach(function(item){
+  carouselImages.forEach(function(item,i){
      htmlStr += `
-       <div class= "pics">
+       <div id="image${i}" class="pics">
           <div><img src="${item.image_url}" /></div>
           <span class= "title">"${item.title}" by <u>${item.photographer_id}</u></span>
           
        </div>
        `
-      // $(".next").on('click', function(){
-    
-       //$(".pics").removeClass(".pics")
-       //$(this).find("+.pics").addClass("")
-  //}
+      
   })
 
-  $("#container").html(htmlStr)
+     $("#container").html(htmlStr)
+     $(".pics:first-child").addClass("current")
+     
+     var automate = {
+      interval: null,
+      start: function() {
+          this.interval = setInterval(function(){
+                next()
+              }, 3000)
+            },
+            stop: function() {
+              clearInterval(this.interval)
+            },
+            startOver: function() {
+              this.stop();
+              this.start();
+            }
+       }
+      //automate.start()
+
+
+    $(".next").on('click', function(){
+    
+        var current = $(".current").attr("id").substr(5)
+        var nextIndex = Number(current) + 1;
   
+        if(nextIndex === carouselImages.length){
+        nextIndex = 0
+        }
+     
+      
+     $(`#image${current}`).removeClass("current")
+     $(`#image${nextIndex}`).addClass("current")
+     //automate.startover()
+    })
+    $(".prev").on('click', function(){
+    
+        var current = $(".current").attr("id").substr(5)
+        var prevIndex = Number(current) - 1;
+  
+        if(prevIndex === -1){
+        prevIndex = carouselImages.length-1
+        }
+     
+      
+     $(`#image${current}`).removeClass("current")
+     $(`#image${prevIndex}`).addClass("current")
+     //automate.startover()
+    })
 })
+
+
+
+
+
+
+
+
+
